@@ -1,29 +1,19 @@
-![Agreena](https://agreena.com/wp-content/uploads/2021/06/agreena-logo.svg)
+To install required packages run:
+npm i
 
-# NodeJS recruitment test task
+To start server run:
+npm start:dev
 
-### Carbon Certificates application API
-Create the API containing endpoints:
-1. Login
-2. List of available Carbon certificates (*no owner*)
-3. List of owned Carbon certificates (*owned by current user*)
-4. Transfer my own Carbon certificate to the another existing user (*based on the User ID parameter*)
+To run tests run:
 
-##### Data informations
-**Carbon certificate** should contain the following data:
-- Unique ID
-- Country
-- Status:
-  - `available` (*no owner*)
-  - `owned` (*owner is present and certificate hasn't been transferred*)
-  - `transferred` (*owner is present and certificate has been transferred from one owner to another*)
-- Owner (*relation to existing user, can be empty*)
+npm test
 
-##### Requirements
-- Application should be written with strong typing (*TypeScript*)
-- Framework is free of choice
-- Authentication should be implemented (*type/package if free of choice*)
-- Seeds should be included (*100 random certificates, 5 random users with certificates and 5 without them*)
-- Tests have to be included
+to get all the user's carbon certificates:
+GET localhost/users/carbon_certificates
 
-### Good luck!
+to get all available certificates:
+GET localhost/availabe_certificates
+
+to switch a certificate from one user to another, body is json { carbonId, username }
+
+POST localhost/switch
